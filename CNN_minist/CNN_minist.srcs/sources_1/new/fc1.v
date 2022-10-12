@@ -10,7 +10,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 	ÏÈÊäÈë1000¸öÊı¾İ£¬ÔÙ¶ÔÈ¨ÖØ½øĞĞÈ¥¶Á¼ÆËã
+// 	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1000ï¿½ï¿½ï¿½ï¿½ï¿½İ£ï¿½ï¿½Ù¶ï¿½È¨ï¿½Ø½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Dependencies: 
 // 
 // Revision:
@@ -22,7 +22,7 @@
 
 module fc1
 #(parameter fc1_num = 10'd1000,
-parameter fc2_num = 10'd200,
+parameter fc2_num = 10'd10,
 parameter weight_widht = 6'd17,
 parameter feature_widht = 7'd32)(
 	input						clk,
@@ -31,32 +31,32 @@ parameter feature_widht = 7'd32)(
 	input						vaild,
 	input  [feature_widht-1: 0]		data_in,
 	output 						out_en,
-	output [feature_widht-1: 0]		data_out
+	output [48-1: 0]		data_out
     	);
     	
-	reg		[9: 0]				cnt_data;		//¶ÔÊäÈëµÄ1000¸öÊı¾İ½øĞĞ¸³ÖµÔÙbufferÖĞ
-	reg		[feature_widht-1: 0]	buffer_in		[0:fc1_num-1];		//´¢´æ1000¸öÊı¾İµÄbuffer
+	reg		[9: 0]				cnt_data;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1000ï¿½ï¿½ï¿½ï¿½ï¿½İ½ï¿½ï¿½Ğ¸ï¿½Öµï¿½ï¿½bufferï¿½ï¿½
+	reg		[feature_widht-1: 0]	buffer_in		[0:fc1_num-1];		//ï¿½ï¿½ï¿½ï¿½1000ï¿½ï¿½ï¿½ï¿½ï¿½İµï¿½buffer
 	
-	reg							W_en;			//È¨ÖØ¶ÁÈ¡Ê¹ÄÜ
+	reg							W_en;			//È¨ï¿½Ø¶ï¿½È¡Ê¹ï¿½ï¿½
 	reg							vaild_r,vaild_r2;	
-	wire		[17: 0]				addra;			//È¨ÖØÖµÔÚramµÄµØÖ·¶ÁÈ¡
-	reg		[17: 0]				addra_1000,addra_1000_r;	//Ã¿¶ÁÈ¡Ò»¸ö½øĞĞ+1
-	reg		[ 8: 0]				cnt_200,cnt_200_r;		//Ã¿Î»1000È¨ÖµµÄÊä³ö½øĞĞ+1
-	wire		[16: 0]				fc1_weight;			//Êä³öµÄÈ¨Öµ
-	wire		[47:0]				fc1_bias;			//Æ«ÖÃ
-	wire							bias_en;			//Æ«ÖÃµÄÊ¹ÄÜ
+	wire		[17: 0]				addra;			//È¨ï¿½ï¿½Öµï¿½ï¿½ramï¿½Äµï¿½Ö·ï¿½ï¿½È¡
+	reg		[17: 0]				addra_1000,addra_1000_r;	//Ã¿ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+1
+	reg		[ 8: 0]				cnt_200,cnt_200_r;		//Ã¿Î»1000È¨Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+1
+	wire		[16: 0]				fc1_weight;			//ï¿½ï¿½ï¿½ï¿½ï¿½È¨Öµ
+	wire		[47:0]				fc1_bias;			//Æ«ï¿½ï¿½
+	wire							bias_en;			//Æ«ï¿½Ãµï¿½Ê¹ï¿½ï¿½
 	
 	reg 							W_en_r;
-	wire							data_out_r_en;		//ÅĞ¶Ï³ËÊıÊÇ·ñÎª0
-	wire							last;			//W_enÊ¹ÄÜÍêÒ²ËµÃ÷¸ÃfcÊı¾İ´¦ÀíÍê£¬¶ÔÆä½øĞĞÅĞ¶ÏÎª×îºóÒ»¸öÊä³öÖµ
-	reg							last_r,last_r2;	//Îªlast×öÆÌµæ
-	wire		[63:0]				data_out_r;		//Ïà³ËºóµÄÊıÖµ£¬ÓĞ0Ö±½ÓÊä³öµÃÊıÎª0£»
-	wire		[47:0]				data_out_r2;		//Çó¶Ô¸ºÊıµÄ·´Âë
-	reg		[47: 0]				data_out_r3;		//Çó1000¸ödata_out_r2µÄºÍ
-	reg		[47: 0]				data_1;			//×îºódata_out_r3ÔÙ¼ÓÉÏÆ«ÖÃÖ®ºó¾ÍÎªÊä³öÖµ
+	wire							data_out_r_en;		//ï¿½Ğ¶Ï³ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îª0
+	wire							last;			//W_enÊ¹ï¿½ï¿½ï¿½ï¿½Ò²Ëµï¿½ï¿½ï¿½ï¿½fcï¿½ï¿½ï¿½İ´ï¿½ï¿½ï¿½ï¿½ê£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½Îªï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	reg							last_r,last_r2;	//Îªlastï¿½ï¿½ï¿½Ìµï¿½
+	wire		[63:0]				data_out_r;		//ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½0Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½
+	wire		[47:0]				data_out_r2;		//ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	reg		[47: 0]				data_out_r3;		//ï¿½ï¿½1000ï¿½ï¿½data_out_r2ï¿½Äºï¿½
+	reg		[47: 0]				data_1;			//ï¿½ï¿½ï¿½data_out_r3ï¿½Ù¼ï¿½ï¿½ï¿½Æ«ï¿½ï¿½Ö®ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Öµ
 	    	
 	///////////////////////////
-	//////////biasºÍweight/////////////
+	//////////biasï¿½ï¿½weight/////////////
 	///////////////////////////
 	fc1_bias fc1_bias_u(
 		.clk_5x			(clk_5x),
@@ -206,7 +206,7 @@ parameter feature_widht = 7'd32)(
 			data_1 <= data_out_r3 + fc1_bias;
 	end
 	
-	//	relu²ã
+	//	reluï¿½ï¿½
 	assign	data_out = (data_1[47])? 32'd0:data_1[39:8];
 	assign 	out_en = ((addra_1000>18'd0 && addra_1000<18'd6 && cnt_200>9'd0) || last)?1'd1:1'd0;
     	

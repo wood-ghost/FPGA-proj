@@ -1,0 +1,7 @@
+0.7
+2020.2
+Nov 18 2020
+09:20:35
+/home/ease/Desktop/01_JI/07_2022Fall/chips/FPGA-proj/CNN_minist/CNN_minist.ip_user_files/ipstatic/hdl/fifo_generator_v13_2_rfs.v,1665558119,verilog,,,,fifo_generator_v13_2_3,,,../../../../CNN_minist.srcs/sources_1/ip/clk_wiz_0,,,,,
+/home/ease/Desktop/01_JI/07_2022Fall/chips/FPGA-proj/CNN_minist/CNN_minist.ip_user_files/ipstatic/hdl/fifo_generator_v13_2_rfs.vhd,1665558119,vhdl,,,,axi_reg_slice;bin_cntr;bram_fifo_rstlogic;bram_sync_reg;builtin_extdepth;builtin_extdepth_low_latency;builtin_extdepth_v6;builtin_prim;builtin_prim_v6;builtin_top;builtin_top_v6;clk_x_pntrs_builtin;delay;fifo_generator_top;fifo_generator_v13_2_3_builtin;fifo_generator_v13_2_3_pkg;fifo_generator_v13_2_3_synth;input_blk;logic_builtin;output_blk;rd_pe_as;rd_pe_ss;reset_blk_ramfifo;reset_builtin;shft_ram;shft_wrapper;synchronizer_ff;wr_pf_as;wr_pf_ss,,,,,,,,
+/home/ease/Desktop/01_JI/07_2022Fall/chips/FPGA-proj/CNN_minist/CNN_minist.ip_user_files/ipstatic/simulation/fifo_generator_vlog_beh.v,1665558119,verilog,,/home/ease/Desktop/01_JI/07_2022Fall/chips/FPGA-proj/CNN_minist/CNN_minist.ip_user_files/ipstatic/hdl/fifo_generator_v13_2_rfs.v,,fifo_generator_v13_2_3_CONV_VER;fifo_generator_v13_2_3_axic_reg_slice;fifo_generator_v13_2_3_beh_ver_ll_afifo;fifo_generator_v13_2_3_bhv_ver_as;fifo_generator_v13_2_3_bhv_ver_preload0;fifo_generator_v13_2_3_bhv_ver_ss;fifo_generator_v13_2_3_sync_stage;fifo_generator_vlog_beh,,,../../../../CNN_minist.srcs/sources_1/ip/clk_wiz_0,,,,,

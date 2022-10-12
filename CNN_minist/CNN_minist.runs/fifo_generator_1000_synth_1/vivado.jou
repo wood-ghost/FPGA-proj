@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Oct 12 15:06:27 2022
+# Process ID: 12303
+# Current directory: /home/ease/Desktop/01_JI/07_2022Fall/chips/FPGA-proj/CNN_minist/CNN_minist.runs/fifo_generator_1000_synth_1
+# Command line: vivado -log fifo_generator_1000.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fifo_generator_1000.tcl
+# Log file: /home/ease/Desktop/01_JI/07_2022Fall/chips/FPGA-proj/CNN_minist/CNN_minist.runs/fifo_generator_1000_synth_1/fifo_generator_1000.vds
+# Journal file: /home/ease/Desktop/01_JI/07_2022Fall/chips/FPGA-proj/CNN_minist/CNN_minist.runs/fifo_generator_1000_synth_1/vivado.jou
+#-----------------------------------------------------------
+source fifo_generator_1000.tcl -notrace

@@ -31,20 +31,20 @@ parameter photo_indata = 6'd16)
 	wire		[feature_width-1:0]			conv2_out_data;
 	wire		conv2_out_start,conv2_out_end,conv2_out_vaild,conv2_out_ready;
 
-	//µÚÒ»²ã¾í»ý
+	//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
 	wire	conv1_out_start,conv1_out_end,conv1_out_vaild;
 
-	//×î´ó³Ø»¯²ã
+	//ï¿½ï¿½ï¿½Ø»ï¿½ï¿½ï¿½
 	wire		[feature_width*6-1:0]		pooling_data;
 	wire		pooling_out_start,pooling_out_end,pooling_out_vaild;
 	wire		ram_out_en,ram_full;
 	
 	wire	 	[feature_width*6-1:0]		feature1_ram_data;
 
-	wire				fc2_out_en;
-	wire		[31: 0]	fc2_data_out;
-	wire			fifo_200_rd_en,fifo_200_prog_full,fifo_200_out_en;
-	wire	[31:0]	fifo_200_data;
+//	wire				fc2_out_en;
+//	wire		[31: 0]	fc2_data_out;
+//	wire			fifo_200_rd_en,fifo_200_prog_full,fifo_200_out_en;
+//	wire	[31:0]	fifo_200_data;
 	wire				fc1_out_en;
 	wire		[31: 0]	fc1_data_out;
 	wire			fifo_1000_rd_en,fifo_1000_prog_full,fifo_1000_out_en;
@@ -90,7 +90,7 @@ parameter photo_indata = 6'd16)
 		.out_vaild	(conv1_out_vaild)
 	);
 	
-//	µÚÒ»²ã¾í»ýµÄÈ¨Öµ¶ÁÈ¡
+//	ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨Öµï¿½ï¿½È¡
 	conv1_weight conv1_weight_u1
     (
 		.clk			(clk),
@@ -99,7 +99,7 @@ parameter photo_indata = 6'd16)
 		.c1_w_en		(c1_w_en),
 		.c1_w		(c1_w)
 	    );
-//µÚÒ»²ã¾í»ýµÄÆ«ÖÃ¶ÁÈ¡
+//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ«ï¿½Ã¶ï¿½È¡
 	conv1_bias	conv1_bias_u1
 	(
 		.clk			(clk),
@@ -173,24 +173,24 @@ parameter photo_indata = 6'd16)
 	);
 	
 	
-	fifo_200 fifo_200_u(
-		.clk			(clk_50M),
-		.rst_n		(rst_n),
-		.data_in		(fc1_data_out),
-		.wr_en		(fc1_out_en),
-		.rd_en		(fifo_200_rd_en),
-		.prog_full	(fifo_200_prog_full),
-		.out_en		(fifo_200_out_en),
-		.data_out		(fifo_200_data)
-	    );
+//	fifo_200 fifo_200_u(
+//		.clk			(clk_50M),
+//		.rst_n		(rst_n),
+//		.data_in		(fc1_data_out),
+//		.wr_en		(fc1_out_en),
+//		.rd_en		(fifo_200_rd_en),
+//		.prog_full	(fifo_200_prog_full),
+//		.out_en		(fifo_200_out_en),
+//		.data_out		(fifo_200_data)
+//	    );
 	
-	fc2	fc2_u(
-		.clk			(clk_50M),
-		.clk_5x		(clk_250M),
-		.rst_n		(rst_n),
-		.vaild		(fifo_200_out_en),
-		.data_in		(fifo_200_data),
-		.out_en		(fc2_out_en),
-		.data_out		(fc2_data_out)
-	);
+//	fc2	fc2_u(
+//		.clk			(clk_50M),
+//		.clk_5x		(clk_250M),
+//		.rst_n		(rst_n),
+//		.vaild		(fifo_200_out_en),
+//		.data_in		(fifo_200_data),
+//		.out_en		(fc2_out_en),
+//		.data_out		(fc2_data_out)
+//	);
 endmodule

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="feature_ram_synth_1" LaunchPart="xc7a200tsbg484-2" LaunchTime="1641387045">
-  <File Type="PA-TCL" Name="feature_ram.tcl"/>
   <File Type="REPORTS-TCL" Name="feature_ram_reports.tcl"/>
+  <File Type="PA-TCL" Name="feature_ram.tcl"/>
+  <File Type="RDS-DCP" Name="feature_ram.dcp"/>
   <File Type="RDS-RDS" Name="feature_ram.vds"/>
   <File Type="RDS-UTIL" Name="feature_ram_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="feature_ram_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="feature_ram.dcp"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/feature_ram">
     <File Path="$PSRCDIR/sources_1/ip/feature_ram/feature_ram.xci">
       <FileInfo>

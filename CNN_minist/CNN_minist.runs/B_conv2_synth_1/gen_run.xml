@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="B_conv2_synth_1" LaunchPart="xc7a200tsbg484-2" LaunchTime="1641972191">
-  <File Type="PA-TCL" Name="B_conv2.tcl"/>
+<GenRun Id="B_conv2_synth_1" LaunchPart="xc7a200tsbg484-2" LaunchTime="1665558382">
   <File Type="REPORTS-TCL" Name="B_conv2_reports.tcl"/>
+  <File Type="PA-TCL" Name="B_conv2.tcl"/>
+  <File Type="RDS-DCP" Name="B_conv2.dcp"/>
   <File Type="RDS-RDS" Name="B_conv2.vds"/>
   <File Type="RDS-UTIL" Name="B_conv2_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="B_conv2_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="B_conv2.dcp"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/B_conv2">
     <File Path="$PSRCDIR/sources_1/ip/B_conv2/B_conv2.xci">
       <FileInfo>
